@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.17.0"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-13242ef1ebbb88a4dc7fc71e3a883f4b"}, "mark": {"type": "line"}, "encoding": {"tooltip": [{"field": "INCAR_SUPERV_CREATED_DATE", "type": "temporal"}, {"field": "count", "type": "quantitative"}], "x": {"field": "INCAR_SUPERV_CREATED_DATE", "title": "Date", "type": "temporal"}, "y": {"field": "count", "title": "Count", "type": "quantitative"}}, "height": 400, "title": "Time Series of Disciplinary Record Creation by Month", "width": 600, "$schema": "https://vega.github.io/schema/vega-lite/v5.17.0.json", "datasets": {"data-13242ef1ebbb88a4dc7fc71e3a883f4b": [{"INCAR_SUPERV_CREATED_DATE": "2022-02-01T00:00:00", "count": 6373}, {"INCAR_SUPERV_CREATED_DATE": "2022-04-01T00:00:00", "count": 6405}, {"INCAR_SUPERV_CREATED_DATE": "2022-05-01T00:00:00", "count": 6444}, {"INCAR_SUPERV_CREATED_DATE": "2022-07-01T00:00:00", "count": 10782}, {"INCAR_SUPERV_CREATED_DATE": "2022-08-01T00:00:00", "count": 5854}, {"INCAR_SUPERV_CREATED_DATE": "2022-09-01T00:00:00", "count": 5655}, {"INCAR_SUPERV_CREATED_DATE": "2022-10-01T00:00:00", "count": 2234}, {"INCAR_SUPERV_CREATED_DATE": "2022-11-01T00:00:00", "count": 2483}, {"INCAR_SUPERV_CREATED_DATE": "2022-12-01T00:00:00", "count": 2241}, {"INCAR_SUPERV_CREATED_DATE": "2023-01-01T00:00:00", "count": 3015}, {"INCAR_SUPERV_CREATED_DATE": "2023-02-01T00:00:00", "count": 5307}, {"INCAR_SUPERV_CREATED_DATE": "2023-03-01T00:00:00", "count": 739}, {"INCAR_SUPERV_CREATED_DATE": "2023-04-01T00:00:00", "count": 5099}, {"INCAR_SUPERV_CREATED_DATE": "2023-05-01T00:00:00", "count": 44160}, {"INCAR_SUPERV_CREATED_DATE": "2023-06-01T00:00:00", "count": 4482}, {"INCAR_SUPERV_CREATED_DATE": "2023-07-01T00:00:00", "count": 225754}, {"INCAR_SUPERV_CREATED_DATE": "2023-08-01T00:00:00", "count": 220}, {"INCAR_SUPERV_CREATED_DATE": "2023-09-01T00:00:00", "count": 234}, {"INCAR_SUPERV_CREATED_DATE": "2023-10-01T00:00:00", "count": 242}, {"INCAR_SUPERV_CREATED_DATE": "2023-11-01T00:00:00", "count": 290}, {"INCAR_SUPERV_CREATED_DATE": "2023-12-01T00:00:00", "count": 102}, {"INCAR_SUPERV_CREATED_DATE": "2024-01-01T00:00:00", "count": 176}, {"INCAR_SUPERV_CREATED_DATE": "2024-02-01T00:00:00", "count": 218}, {"INCAR_SUPERV_CREATED_DATE": "2024-03-01T00:00:00", "count": 229}, {"INCAR_SUPERV_CREATED_DATE": "2024-04-01T00:00:00", "count": 325}, {"INCAR_SUPERV_CREATED_DATE": "2024-05-01T00:00:00", "count": 37}, {"INCAR_SUPERV_CREATED_DATE": "2024-06-01T00:00:00", "count": 188}, {"INCAR_SUPERV_CREATED_DATE": "2024-07-01T00:00:00", "count": 39344}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>

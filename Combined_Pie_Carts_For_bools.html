@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.17.0"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "vconcat": [{"hconcat": [{"data": {"name": "data-b3b83361fa9f869930e1c24c481b9ab7"}, "mark": {"type": "arc"}, "encoding": {"color": {"field": "value", "type": "nominal"}, "theta": {"field": "count", "type": "quantitative"}, "tooltip": [{"field": "value", "type": "nominal"}, {"field": "count", "type": "quantitative"}, {"field": "percentage", "format": ".1f", "type": "quantitative"}]}, "height": 250, "title": "PRIOR_INCARCERATION_IND", "width": 250}, {"data": {"name": "data-ec96166a59ddfb372e4d971d8ab3cc92"}, "mark": {"type": "arc"}, "encoding": {"color": {"field": "value", "type": "nominal"}, "theta": {"field": "count", "type": "quantitative"}, "tooltip": [{"field": "value", "type": "nominal"}, {"field": "count", "type": "quantitative"}, {"field": "percentage", "format": ".1f", "type": "quantitative"}]}, "height": 250, "title": "INCARC_PROG_PARTICIPATION_IND", "width": 250}]}, {"hconcat": [{"data": {"name": "data-44784389b3bae327ae9b0d5af66505d5"}, "mark": {"type": "arc"}, "encoding": {"color": {"field": "value", "type": "nominal"}, "theta": {"field": "count", "type": "quantitative"}, "tooltip": [{"field": "value", "type": "nominal"}, {"field": "count", "type": "quantitative"}, {"field": "percentage", "format": ".1f", "type": "quantitative"}]}, "height": 250, "title": "SEXUAL_OFFENDER_IND", "width": 250}, {"data": {"name": "data-f6d904f062b6d2e2bc1e66daa9695c95"}, "mark": {"type": "arc"}, "encoding": {"color": {"field": "value", "type": "nominal"}, "theta": {"field": "count", "type": "quantitative"}, "tooltip": [{"field": "value", "type": "nominal"}, {"field": "count", "type": "quantitative"}, {"field": "percentage", "format": ".1f", "type": "quantitative"}]}, "height": 250, "title": "GANG_AFFILIATION_IND", "width": 250}]}], "$schema": "https://vega.github.io/schema/vega-lite/v5.17.0.json", "datasets": {"data-b3b83361fa9f869930e1c24c481b9ab7": [{"value": false, "count": 65542, "percentage": 58.05622973762999}, {"value": true, "count": 47352, "percentage": 41.94377026237001}], "data-ec96166a59ddfb372e4d971d8ab3cc92": [{"value": true, "count": 59011, "percentage": 52.27115701454462}, {"value": false, "count": 53883, "percentage": 47.72884298545538}], "data-44784389b3bae327ae9b0d5af66505d5": [{"value": false, "count": 92159, "percentage": 81.63321345687105}, {"value": true, "count": 20735, "percentage": 18.366786543128953}], "data-f6d904f062b6d2e2bc1e66daa9695c95": [{"value": false, "count": 93225, "percentage": 82.57746204404131}, {"value": true, "count": 19669, "percentage": 17.422537955958685}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.17.0"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "hconcat": [{"data": {"name": "data-696959bf1834ea2b7801d283bfa03aa8"}, "mark": {"type": "arc", "outerRadius": 120}, "encoding": {"color": {"field": "category", "scale": {"range": ["#1170aa", "#fc7d0b", "#a3acb9", "#57606c", "#5fa2ce", "#c85200", "#7b848f", "#e15759", "#76b7b2", "#59a14f", "#edc948"]}, "type": "nominal"}, "theta": {"field": "count", "stack": true, "type": "quantitative"}, "tooltip": [{"field": "category", "type": "nominal"}, {"field": "count", "type": "quantitative"}, {"field": "percentage", "format": ".1f", "type": "quantitative"}]}, "height": 300, "title": "INCARCERATION_CUSTODY_LEVEL_TYPE_DESC", "width": 300}, {"data": {"name": "data-dfa1790cf0b0ca61937c96b429fb5768"}, "mark": {"type": "arc", "outerRadius": 120}, "encoding": {"color": {"field": "category", "scale": {"range": ["#1170aa", "#fc7d0b", "#a3acb9", "#57606c", "#5fa2ce", "#c85200", "#7b848f", "#e15759", "#76b7b2", "#59a14f", "#edc948"]}, "type": "nominal"}, "theta": {"field": "count", "stack": true, "type": "quantitative"}, "tooltip": [{"field": "category", "type": "nominal"}, {"field": "count", "type": "quantitative"}, {"field": "percentage", "format": ".1f", "type": "quantitative"}]}, "height": 300, "title": "SUPERVISION_CATEGORY_DESC", "width": 300}], "title": "Incarceration Custody Level vs Supervision Categories", "$schema": "https://vega.github.io/schema/vega-lite/v5.17.0.json", "datasets": {"data-696959bf1834ea2b7801d283bfa03aa8": [{"category": "Close", "count": 33335, "percentage": 42.39098643132368, "cumulative": 21.19549321566184, "angle": 1.3317521155107108, "x": 0.6183870620592021, "y": 0.9857823623156676}, {"category": "Medium", "count": 26318, "percentage": 33.46770604168521, "cumulative": 59.124839452166285, "angle": 3.7149232253520315, "x": 0.07995048712754554, "y": 0.22878346891162094}, {"category": "Minimum", "count": 13509, "percentage": 17.178936124216335, "cumulative": 84.44816053511705, "angle": 5.306034414925905, "x": 0.7796932296332666, "y": 0.08554650767871091}, {"category": "Community", "count": 5347, "percentage": 6.799598153540954, "cumulative": 96.4374276739957, "angle": 6.059342286234438, "x": 0.9875257919847311, "y": 0.38901080165322055}, {"category": "Maximum", "count": 128, "percentage": 0.16277324923382122, "cumulative": 99.91861337538309, "angle": 6.278071634739647, "x": 0.9999934626027902, "y": 0.4974431749234094}], "data-dfa1790cf0b0ca61937c96b429fb5768": [{"category": "Probation", "count": 2051, "percentage": 55.96180081855388, "cumulative": 27.98090040927694, "angle": 1.7580918233322416, "x": 0.4068988131643366, "y": 0.9912557063381462}, {"category": "Post-Prison Supervision/Parole", "count": 1271, "percentage": 34.6793997271487, "cumulative": 73.30150068212824, "angle": 4.605669120801625, "x": 0.4467412997276998, "y": 0.0028445807945916557}, {"category": "Community Control", "count": 343, "percentage": 9.358799454297408, "cumulative": 95.3206002728513, "angle": 5.989169951059178, "x": 0.9785439768338281, "y": 0.35510120001854883}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>

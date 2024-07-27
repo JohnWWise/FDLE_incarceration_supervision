@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.17.0"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-29f77f41e83f0471f044b41c9bc2805a"}, "mark": {"type": "bar"}, "encoding": {"color": {"field": "educational_tier", "scale": {"scheme": "set3"}, "type": "nominal"}, "tooltip": [{"field": "HIGHEST_EDUCATION_LEVEL", "type": "ordinal"}, {"field": "educational_tier", "type": "nominal"}, {"field": "count", "type": "quantitative"}, {"field": "percentage", "type": "quantitative"}, {"field": "cumulative percentage", "type": "quantitative"}], "x": {"axis": {"labelAngle": -45}, "field": "HIGHEST_EDUCATION_LEVEL", "sort": ["Unknown", "First Grade", "Second Grade", "Third Grade", "Fourth Grade", "Fifth Grade", "Six Grade", "Seventh Grade", "Eighth Grade", "Ninth Grade", "Tenth Grade", "Eleventh Grade", "Twelfth Grade", "First Year of College", "Second Year of College", "Third Year of College", "Fourth Year of College", "First Year of Grad School", "Second Year of Grad School", "Third Year of Grad School", "Fourth or More Years of Grad School"], "type": "nominal"}, "y": {"axis": {}, "field": "cumulative percentage", "type": "quantitative"}}, "height": 400, "title": "Higest Grade Completed by Cumulative Percentage and Educational Tier", "width": 600, "$schema": "https://vega.github.io/schema/vega-lite/v5.17.0.json", "datasets": {"data-29f77f41e83f0471f044b41c9bc2805a": [{"HIGHEST_EDUCATION_LEVEL": "First Grade", "count": 69, "percentage": 0.06, "cumulative percentage": 95.52999999999999, "educational_tier": "Primary School"}, {"HIGHEST_EDUCATION_LEVEL": "Second Grade", "count": 103, "percentage": 0.1, "cumulative percentage": 95.46999999999998, "educational_tier": "Primary School"}, {"HIGHEST_EDUCATION_LEVEL": "Third Grade", "count": 156, "percentage": 0.14, "cumulative percentage": 95.36999999999999, "educational_tier": "Primary School"}, {"HIGHEST_EDUCATION_LEVEL": "Fourth Grade", "count": 148, "percentage": 0.14, "cumulative percentage": 95.22999999999999, "educational_tier": "Primary School"}, {"HIGHEST_EDUCATION_LEVEL": "Fifth Grade", "count": 384, "percentage": 0.36, "cumulative percentage": 95.08999999999999, "educational_tier": "Primary School"}, {"HIGHEST_EDUCATION_LEVEL": "Six Grade", "count": 1249, "percentage": 1.16, "cumulative percentage": 94.72999999999999, "educational_tier": "Primary School"}, {"HIGHEST_EDUCATION_LEVEL": "Seventh Grade", "count": 1918, "percentage": 1.78, "cumulative percentage": 93.57, "educational_tier": "Primary School"}, {"HIGHEST_EDUCATION_LEVEL": "Eighth Grade", "count": 5185, "percentage": 4.8, "cumulative percentage": 91.78999999999999, "educational_tier": "Primary School"}, {"HIGHEST_EDUCATION_LEVEL": "Ninth Grade", "count": 12960, "percentage": 12.0, "cumulative percentage": 86.99, "educational_tier": "High School"}, {"HIGHEST_EDUCATION_LEVEL": "Tenth Grade", "count": 14324, "percentage": 13.27, "cumulative percentage": 74.99, "educational_tier": "High School"}, {"HIGHEST_EDUCATION_LEVEL": "Eleventh Grade", "count": 17371, "percentage": 16.09, "cumulative percentage": 61.72, "educational_tier": "High School"}, {"HIGHEST_EDUCATION_LEVEL": "Twelfth Grade", "count": 39824, "percentage": 36.88, "cumulative percentage": 45.63, "educational_tier": "High School"}, {"HIGHEST_EDUCATION_LEVEL": "First Year of College", "count": 3464, "percentage": 3.21, "cumulative percentage": 8.75, "educational_tier": "College"}, {"HIGHEST_EDUCATION_LEVEL": "Second Year of College", "count": 3807, "percentage": 3.53, "cumulative percentage": 5.54, "educational_tier": "College"}, {"HIGHEST_EDUCATION_LEVEL": "Third Year of College", "count": 442, "percentage": 0.41, "cumulative percentage": 2.0100000000000002, "educational_tier": "College"}, {"HIGHEST_EDUCATION_LEVEL": "Fourth Year of College", "count": 1405, "percentage": 1.3, "cumulative percentage": 1.6, "educational_tier": "College"}, {"HIGHEST_EDUCATION_LEVEL": "First Year of Grad School", "count": 63, "percentage": 0.06, "cumulative percentage": 0.30000000000000004, "educational_tier": "Grad School"}, {"HIGHEST_EDUCATION_LEVEL": "Second Year of Grad School", "count": 151, "percentage": 0.14, "cumulative percentage": 0.24000000000000002, "educational_tier": "Grad School"}, {"HIGHEST_EDUCATION_LEVEL": "Third Year of Grad School", "count": 22, "percentage": 0.02, "cumulative percentage": 0.1, "educational_tier": "Grad School"}, {"HIGHEST_EDUCATION_LEVEL": "Fourth or More Years of Grad School", "count": 86, "percentage": 0.08, "cumulative percentage": 0.08, "educational_tier": "Grad School"}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>

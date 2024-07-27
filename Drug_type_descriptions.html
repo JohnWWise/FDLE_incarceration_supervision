@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.17.0"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "layer": [{"mark": {"type": "arc", "outerRadius": 120}, "encoding": {"color": {"field": "Drug Type", "scale": {"scheme": "category20"}, "type": "nominal"}, "theta": {"field": "Count", "stack": true, "type": "quantitative"}, "tooltip": [{"field": "Drug Type", "type": "nominal"}, {"field": "Count", "type": "quantitative"}, {"field": "Percentage", "format": ".1f", "type": "quantitative"}]}}, {"mark": {"type": "text", "align": "center", "baseline": "middle", "radius": 150}, "encoding": {"color": {"field": "Drug Type", "scale": {"scheme": "category20"}, "type": "nominal"}, "text": {"field": "Drug Type", "type": "nominal"}, "theta": {"field": "Count", "stack": true, "type": "quantitative"}, "tooltip": [{"field": "Drug Type", "type": "nominal"}, {"field": "Count", "type": "quantitative"}, {"field": "Percentage", "format": ".1f", "type": "quantitative"}], "x": {"axis": null, "field": "Drug Type", "type": "nominal"}, "y": {"axis": null, "field": "cumulative_percentage", "scale": {"range": [0, 360]}, "type": "quantitative"}}}], "data": {"name": "data-0e8507c4596b256a39bc73385547cd9b"}, "height": 400, "title": "Distribution of Drug Types", "width": 400, "$schema": "https://vega.github.io/schema/vega-lite/v5.17.0.json", "datasets": {"data-0e8507c4596b256a39bc73385547cd9b": [{"Drug Type": " Cocaine", "Count": 4, "Percentage": 100.0, "cumulative_percentage": 50.0}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>

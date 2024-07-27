@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.17.0"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "hconcat": [{"data": {"name": "data-93aaadc4f19559357881539708171626"}, "mark": {"type": "arc", "outerRadius": 120}, "encoding": {"color": {"field": "category", "scale": {"range": ["#1170aa", "#fc7d0b", "#a3acb9", "#57606c", "#5fa2ce", "#c85200", "#7b848f", "#e15759", "#76b7b2", "#59a14f", "#edc948"]}, "type": "nominal"}, "theta": {"field": "count", "stack": true, "type": "quantitative"}, "tooltip": [{"field": "category", "type": "nominal"}, {"field": "count", "type": "quantitative"}, {"field": "percentage", "format": ".1f", "type": "quantitative"}]}, "height": 300, "title": "CORRECTION_ADMISSION_REASON_DESC", "width": 300}, {"data": {"name": "data-3b840521f268e9d94891328b752698a4"}, "mark": {"type": "arc", "outerRadius": 120}, "encoding": {"color": {"field": "category", "scale": {"range": ["#1170aa", "#fc7d0b", "#a3acb9", "#57606c", "#5fa2ce", "#c85200", "#7b848f", "#e15759", "#76b7b2", "#59a14f", "#edc948"]}, "type": "nominal"}, "theta": {"field": "count", "stack": true, "type": "quantitative"}, "tooltip": [{"field": "category", "type": "nominal"}, {"field": "count", "type": "quantitative"}, {"field": "percentage", "format": ".1f", "type": "quantitative"}]}, "height": 300, "title": "CUSTODY_RELEASE_REASON_DESC", "width": 300}], "title": "Correction Admission Reasons vs Custody Release Reasons", "$schema": "https://vega.github.io/schema/vega-lite/v5.17.0.json", "datasets": {"data-93aaadc4f19559357881539708171626": [{"category": "New Conviction", "count": 95010, "percentage": 84.15859124488459, "cumulative": 42.079295622442295, "angle": 2.643920119913957, "x": 0.060651984647987545, "y": 0.7386908490207529}, {"category": "Violation of Probation - New Law Violation", "count": 9900, "percentage": 8.769288004676953, "cumulative": 88.54323524722307, "angle": 5.563335547554976, "x": 0.8759523934281109, "y": 0.1703641435224698}, {"category": "Violation of Probation - Technical", "count": 4655, "percentage": 4.123336935532446, "cumulative": 94.98954771732777, "angle": 5.96836930553148, "x": 0.9754266842695172, "y": 0.345179239491298}, {"category": "Violation of Community Control - New Law Violation", "count": 1641, "percentage": 1.4535759207752403, "cumulative": 97.7780041454816, "angle": 6.143573190122347, "x": 0.9951350240573298, "y": 0.43042049186903214}, {"category": "Violation of Community Control - Technical", "count": 1612, "percentage": 1.427888107428207, "cumulative": 99.21873615958333, "angle": 6.234097052348219, "x": 0.9993977067673058, "y": 0.47546572855053404}, {"category": "Violation of Post-Prison Supervision/Parole - New Law Violation", "count": 56, "percentage": 0.04960405335978883, "cumulative": 99.95748223997732, "angle": 6.2805138375289, "x": 0.9999982158135374, "y": 0.49866426676345693}, {"category": "Violation of Post-Prison Supervision/Parole - Technical", "count": 20, "percentage": 0.017715733342781724, "cumulative": 99.99114213332861, "angle": 6.28262875100236, "x": 0.9999999225613074, "y": 0.499721721925753}], "data-3b840521f268e9d94891328b752698a4": [{"category": "Released", "count": 20070, "percentage": 79.29672066376926, "cumulative": 39.64836033188463, "angle": 2.4911799509105945, "x": 0.10208301564540251, "y": 0.8027574500522539}, {"category": "Paroled/Probation", "count": 4527, "percentage": 17.88621098380087, "cumulative": 88.23982615566969, "angle": 5.544271792093847, "x": 0.8696003631834701, "y": 0.16325741057204096}, {"category": "Discharged/Expiration", "count": 689, "percentage": 2.722244172263927, "cumulative": 98.5440537337021, "angle": 6.191705505295126, "x": 0.9979093200694154, "y": 0.454323868508679}, {"category": "Paroled", "count": 24, "percentage": 0.09482418016594231, "cumulative": 99.95258790991703, "angle": 6.280206317701666, "x": 0.9999977814070633, "y": 0.4985105074640952}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>

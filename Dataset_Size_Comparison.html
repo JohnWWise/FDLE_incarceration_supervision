@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.17.0"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300, "strokeWidth": 0}, "legend": {"columns": 1, "labelFontSize": 12, "labelLimit": 0, "orient": "bottom", "titleFontSize": 14}}, "data": {"name": "data-a9e3074c07df4f99e96c2c94c1eb21d2"}, "mark": {"type": "circle", "opacity": 0.5}, "encoding": {"color": {"field": "dataset", "legend": {"labelLimit": 0, "title": "Datasets"}, "scale": {"domain": ["IncarcerationSupervision_00000", "IncarcerationSupervisionCharge_00000"], "range": ["blue", "red"]}, "type": "nominal"}, "size": {"field": "radius", "legend": null, "scale": {"range": [0, 40000]}, "type": "quantitative"}, "tooltip": [{"field": "dataset", "type": "nominal"}, {"field": "size", "type": "quantitative"}, {"field": "overlap", "type": "quantitative"}], "x": {"axis": null, "field": "x", "scale": {"domain": [-12.4272988415805, 19.120428426529436]}, "type": "quantitative"}, "y": {"axis": null, "field": "y", "scale": {"domain": [-12.4272988415805, 12.4272988415805]}, "type": "quantitative"}}, "height": 400, "title": "Dataset Size Comparison (Overlap: 15 persons)", "width": 600, "$schema": "https://vega.github.io/schema/vega-lite/v5.17.0.json", "datasets": {"data-a9e3074c07df4f99e96c2c94c1eb21d2": [{"x": 6.693129584948936, "y": 0, "size": 112894, "radius": 12.4272988415805, "dataset": "IncarcerationSupervision_00000", "overlap": 15}, {"x": 0.0, "y": 0, "size": 731, "radius": 1.0, "dataset": "IncarcerationSupervisionCharge_00000", "overlap": 15}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>

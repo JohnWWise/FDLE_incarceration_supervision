@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.17.0"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "vconcat": [{"hconcat": [{"data": {"name": "data-5f08dfcc8fb18ba00ad7063e0e7a6554"}, "mark": {"type": "arc"}, "encoding": {"color": {"field": "value", "type": "nominal"}, "theta": {"field": "count", "type": "quantitative"}, "tooltip": [{"field": "value", "type": "nominal"}, {"field": "count", "type": "quantitative"}]}, "height": 200, "title": "HABITUAL_OFNDR_IND", "width": 200}, {"data": {"name": "data-5f08dfcc8fb18ba00ad7063e0e7a6554"}, "mark": {"type": "arc"}, "encoding": {"color": {"field": "value", "type": "nominal"}, "theta": {"field": "count", "type": "quantitative"}, "tooltip": [{"field": "value", "type": "nominal"}, {"field": "count", "type": "quantitative"}]}, "height": 200, "title": "HABITUAL_VIOL_FELONY_OFNDR_IND", "width": 200}]}, {"hconcat": [{"data": {"name": "data-5f08dfcc8fb18ba00ad7063e0e7a6554"}, "mark": {"type": "arc"}, "encoding": {"color": {"field": "value", "type": "nominal"}, "theta": {"field": "count", "type": "quantitative"}, "tooltip": [{"field": "value", "type": "nominal"}, {"field": "count", "type": "quantitative"}]}, "height": 200, "title": "PRISON_RELEASEE_REOFNDR_IND", "width": 200}, {"data": {"name": "data-5f08dfcc8fb18ba00ad7063e0e7a6554"}, "mark": {"type": "arc"}, "encoding": {"color": {"field": "value", "type": "nominal"}, "theta": {"field": "count", "type": "quantitative"}, "tooltip": [{"field": "value", "type": "nominal"}, {"field": "count", "type": "quantitative"}]}, "height": 200, "title": "VIOLENT_CAREER_CRIM_IND", "width": 200}]}], "$schema": "https://vega.github.io/schema/vega-lite/v5.17.0.json", "datasets": {"data-5f08dfcc8fb18ba00ad7063e0e7a6554": [{"value": false, "count": 998}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>

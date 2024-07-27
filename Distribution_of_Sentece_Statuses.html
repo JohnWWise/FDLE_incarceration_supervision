@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.17.0"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-7752734e262ac653b750b24e1dc9127c"}, "mark": {"type": "arc"}, "encoding": {"color": {"field": "SENTENCE_STATUS", "legend": {"title": "Sentence Status"}, "type": "nominal"}, "theta": {"field": "count", "type": "quantitative"}, "tooltip": [{"field": "SENTENCE_STATUS", "title": "Sentence Status", "type": "nominal"}, {"field": "count", "title": "Count", "type": "quantitative"}, {"field": "percentage", "format": ".2f", "title": "Percentage", "type": "quantitative"}]}, "height": 400, "title": "Distribution of Sentence Statuses", "width": 400, "$schema": "https://vega.github.io/schema/vega-lite/v5.17.0.json", "datasets": {"data-7752734e262ac653b750b24e1dc9127c": [{"SENTENCE_STATUS": "Not Applicable", "count": 578, "percentage": 57.91583166332666}, {"SENTENCE_STATUS": "Concurrent", "count": 335, "percentage": 33.567134268537075}, {"SENTENCE_STATUS": "Consecutive", "count": 70, "percentage": 7.014028056112225}, {"SENTENCE_STATUS": "Coterminous/Concurrent", "count": 15, "percentage": 1.503006012024048}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
